@@ -13,12 +13,13 @@ const port = process.env.PORT || 5000;
 // const ip = '192.168.100.33';
 
 const pool = new Pool({
-  user: "postgres",
-  password: "Legacy14",
-  host: "localhost",
+  user: "ch_database", 
+  password: "R8X3Jn18fluQ9kI2bsMoVNYW63K8yz61", 
+  host: "dpg-ckm42g8710pc73fcdav0-a.oregon-postgres.render.com", 
   port: 5432,
-  database: "ChurchDatabase1"
+  database: "ch_database",
 });
+
 const ACCESS_TOKEN_SECRET = '123HGFDDFF87653WREFDVKJHGSDF987653WRE';
 const REFRESH_TOKEN_SECRET = 'dsfdghg98764354jkhgfdsfghyygygt567kjhbvdfg';
 
@@ -334,7 +335,7 @@ app.use('/user', userRouter);
 
   
   app.get('/', (req, res) => {
-    res.send("Welcome To The Backend Of The Church Database Website by LegacyGh!");
+    res.send("Welcome To The Church Database Website by LegacyGh!");
 });
 
 app.listen(port,  () => {
