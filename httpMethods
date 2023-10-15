@@ -1,0 +1,44 @@
+
+
+
+GET:
+Function: Used to retrieve data from the server.
+
+Safe and Idempotent: GET requests should not change the state of the server, and making the same GET request multiple times should have the same result.
+
+POST:
+Function: Used to submit data to be processed to a specified resource.
+
+Not Idempotent: POST requests can have side effects on the server, and making the same POST request multiple times may result in different outcomes (e.g., creating a new resource each time).
+
+PUT:
+Function: Used to update a resource or create it if it doesn't exist at a specified URI.
+Idempotent: Repeating the same PUT request with the same data should have the same result as a single request.
+
+PATCH:
+Function: Used to apply partial modifications to a resource.
+Idempotent: Repeating the same PATCH request with the same data should have the same result as a single request.
+
+DELETE:
+Function: Used to request the removal of a resource at a specified URI.
+Idempotent: Repeating the same DELETE request should have the same result as a single request (i.e., deleting the resource if it exists).
+
+OPTIONS:
+Function: Used to describe the communication options for the target resource.
+Safe and Idempotent: OPTIONS requests are typically safe and idempotent. They provide information about the supported HTTP methods, headers, and other options for a resource.
+
+HEAD:
+Function: Similar to GET but retrieves only the headers of the response, not the actual data.
+Safe and Idempotent: HEAD requests should not change the state of the server and should be idempotent.
+
+CONNECT:
+Function: Used to establish a network connection to a resource, usually for secure communication through a proxy.
+Not Idempotent: CONNECT requests are not idempotent because they establish a connection, which cannot be repeated in the same way.
+TRACE:
+
+Function: Used for diagnostic purposes to retrieve a diagnostic trace of the request-response cycle.
+Safe and Idempotent: TRACE requests should not change the state of the server and should be idempotent.
+
+PATCH:
+Function: Used to apply partial modifications to a resource.
+Idempotent: Repeating the same PATCH request with the same data should have the same result as a single request.
