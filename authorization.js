@@ -5,7 +5,9 @@ const REFRESH_TOKEN_SECRET = 'dsfdghg98764354jkhgfdsfghyygygt567kjhbvdfg';
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
-  
+
+    console.log('Received token:', token);
+
   if (token == null) {
     console.error("Null token");
     return res.status(401).json({ error: 'null token' });
