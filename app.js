@@ -259,6 +259,7 @@ app.post('/login', async (req, res) => {
   try {
     
     const staff_id = req.body.staff_id;
+    console.log(`Received staff_id: ${staff_id}`);
 
     // Find the user in the database based on the staff ID.
     const user = await pool.query('SELECT * FROM users WHERE staff_id = $1', [staff_id]);
@@ -275,6 +276,9 @@ app.post('/login', async (req, res) => {
       ACCESS_TOKEN_SECRET,
       { expiresIn: '1h' } 
     );
+
+      console.log(`Generated accessToken: ${accessToken}`);
+
 
     //Generate a refresh token
     const refreshToken = jwt.sign(
