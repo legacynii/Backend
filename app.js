@@ -339,7 +339,7 @@ app.use('/user', userRouter);
 
   
   app.get('/', (req, res) => {
-    res.send("Welcome To The Church Database WebApp by Legacy!");
+    res.send("Welcome To The Church Database WebApp by LegacyGH!");
 });
 
 app.listen(port,  () => {
