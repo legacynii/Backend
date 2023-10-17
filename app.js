@@ -26,7 +26,19 @@ const REFRESH_TOKEN_SECRET = 'dsfdghg98764354jkhgfdsfghyygygt567kjhbvdfg';
 
 app.use(express.json());
 
-app.use(cors());
+const allowedOrigins = ['https://frontend-church.onrender.com'];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  })
+);
+
 
 app.use(cookieParser());
 
