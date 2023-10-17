@@ -8,6 +8,7 @@
   },
   "author": "",
   "license": "ISC",
+  "proxy": "https://ch-backend-o6wb.onrender.com/",
   "dependencies": {
     "axios": "^1.5.1",
     "bcrypt": "^5.1.1",
