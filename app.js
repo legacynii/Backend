@@ -261,9 +261,7 @@ const userRouter = express.Router();
   
 
 
-app.get('/check-auth', authenticateToken, (req, res) => {
-  res.status(200).json({ message: 'Authenticated' });
-});
+
 
 
   
@@ -307,6 +305,10 @@ app.post('/login', async (req, res) => {
     console.error(error);
     res.status(401).json({ error: 'An error occurred while logging in' });
   }
+});
+
+app.get('/check-auth', authenticateToken, (req, res) => {
+  res.status(200).json({ message: 'Authenticated' });
 });
 
 app.get('/refresh_token', (req, res) => {
