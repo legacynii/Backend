@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const {authenticateToken} = require ('./authorization.js')
 
 const app = express();
-//const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 // const ip = '192.168.100.33';
 
 const pool = new Pool({
@@ -345,8 +345,8 @@ app.use('/user', userRouter);
     res.send("Welcome To The Church Database WebApp by LegacyGH!");
 });
 
-// app.listen(port,  () => {
-//     console.log(`Server is running on port ${port}`);
-// });
+app.listen(port,  () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 module.exports = pool;
