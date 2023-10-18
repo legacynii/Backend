@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const {authenticateToken} = require ('./authorization.js')
 
 const app = express();
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
 // const ip = '192.168.100.33';
 
 const pool = new Pool({
@@ -27,17 +27,8 @@ const REFRESH_TOKEN_SECRET = 'dsfdghg98764354jkhgfdsfghyygygt567kjhbvdfg';
 app.use(express.json());
 
 const allowedOrigins = ['https://frontend-church.onrender.com'];
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-  })
-);
+app.use(cors());
+
 
 
 app.use(cookieParser());
@@ -263,13 +254,15 @@ const userRouter = express.Router();
 
 
 
+app.get('/check-auth', authenticateToken, (req, res) => {
+  res.status(200).json({ message: 'Authenticated' });
+});
 
   
 app.post('/login', async (req, res) => {
   try {
     
     const staff_id = req.body.staff_id;
-    console.log(`Received staff_id: ${staff_id}`);
 
     // Find the user in the database based on the staff ID.
     const user = await pool.query('SELECT * FROM users WHERE staff_id = $1', [staff_id]);
@@ -287,7 +280,6 @@ app.post('/login', async (req, res) => {
       { expiresIn: '1h' } 
     );
 
-      console.log(`Generated accessToken: ${accessToken}`);
 
 
     //Generate a refresh token
@@ -307,9 +299,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/check-auth', authenticateToken, (req, res) => {
-  res.status(200).json({ message: 'Authenticated' });
-});
 
 app.get('/refresh_token', (req, res) => {
   try {
@@ -353,11 +342,11 @@ app.use('/user', userRouter);
 
   
   app.get('/', (req, res) => {
-    res.send("Welcome To The Church Database WebApp by Legacy!");
+    res.send("Welcome To The Church Database WebApp by LegacyGH!");
 });
 
-app.listen(port,  () => {
-    console.log(`Server is running on port ${port}`);
-});
+// app.listen(port,  () => {
+//     console.log(`Server is running on port ${port}`);
+// });
 
 module.exports = pool;
