@@ -33,6 +33,14 @@ app.use(cors());
 
 app.use(cookieParser());
 
+pool.query('SELECT NOW()', (err, result) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+  } else {
+    console.log('Connected to the database. Current timestamp:', result.rows[0].now);
+  }
+});
+
 
 app.get('/api/search', async (req, res) => {
   try {
