@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 const pool = new Pool({
   user: "ch_database", 
   password: "R8X3Jn18fluQ9kI2bsMoVNYW63K8yz61", 
-  host: "dpg-ckm42g8710pc73fcdav0-a.oregon-postgres.render.com", 
+  host: "dpg-ckm42g8710pc73fcdav0-a", 
   port: 5432,
   database: "ch_database",
 });
