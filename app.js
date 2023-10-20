@@ -26,7 +26,6 @@ const REFRESH_TOKEN_SECRET = 'dsfdghg98764354jkhgfdsfghyygygt567kjhbvdfg';
 
 app.use(express.json());
 
-const allowedOrigins = ['https://frontend-church.onrender.com'];
 app.use(cors());
 
 
